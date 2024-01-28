@@ -1,6 +1,6 @@
 <template>
     <section class="container">
-        {{ feedback }}
+        <p>{{ feedback }}</p>
         <form>
             <div class="row mb-3">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">{{ $t("loginScreen.lbl.email") }}
@@ -13,11 +13,12 @@
             <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">{{ $t("loginScreen.lbl.password") }}</label>
                 <div class="col-sm-10">
-                    <input :placeholder="$t('loginScreen.ph.password')" type="password" class="form-control" id="passwor3"
+                    <input :placeholder="$t('loginScreen.ph.password')" type="password" class="form-control" id="password"
                         v-model="password">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" @click.prevent="login">{{ $t("loginScreen.btn.submit") }}</button>
+            <button id="login" type="submit" class="btn btn-primary" @click.prevent="login">{{ $t("loginScreen.btn.submit")
+            }}</button>
             <p>{{ $t("loginScreen.txt.newAccount") }}</p>
             <router-link class="btn btn-outline-success" to="/register">{{ $t("loginScreen.link.register")
             }}</router-link>

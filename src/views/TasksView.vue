@@ -61,6 +61,7 @@ import useAuth from '@/store/auth';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import 'datatables.net-responsive';
+import router from "../router/index"
 
 DataTable.use(DataTablesCore);
 const store = useAuth()
@@ -92,6 +93,11 @@ const columns = [
 const options = {
     "responsive": "true",
     "processing": "true",
+    "rowCallback": function (nRow, aData) {
+        nRow.querySelector('td:nth-child(4)').innerHTML = "<a class=\"text-body\" href=\"/taskDetails/" + aData["id"] + "\">" + aData["subject"] + "</a>";
+    }
+
+
     // "language": {
     //     "decimal": "",
     //     "emptyTable": "{{$t('DtEmptyTable')}}",

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import TasksView from "../views/TasksView.vue";
+import TaskDetailsView from "../views/TaskDetailsView.vue";
 import LoginView from "../views/LoginView.vue";
 import LogoutView from "@/views/LogoutView.vue";
 
@@ -23,6 +24,14 @@ const routes: Array<RouteRecordRaw> = [
     component: AboutView,
     meta: {
       requireAuth: false,
+    },
+  },
+  {
+    path: "/taskDetails/:id",
+    name: "taskDetails",
+    component: TaskDetailsView,
+    meta: {
+      requireAuth: true,
     },
   },
   {

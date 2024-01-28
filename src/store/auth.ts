@@ -88,8 +88,21 @@ const useAuth = defineStore("auth", {
         return "no tasks";
       }
     },
-    async createTask() {
-      //TODO
+    async getTasksById(id: number) {
+      const uri = `${this.baseURL}api/Tasks/GetTaskDetails/${id}`;
+      try {
+        const rawResponse = await fetch(uri, {
+          headers: {
+            "Content-Type": "Application/json; charset=utf-8",
+            Accept: "Application/json",
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
+        const response = await rawResponse.json();
+        return response;
+      } catch (error) {
+        return "no task";
+      }
     },
   },
   persist: {
